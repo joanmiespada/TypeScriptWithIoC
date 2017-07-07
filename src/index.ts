@@ -1,34 +1,10 @@
 
-import { InstancePerDependency, SingleInstance  } from 'eye-oh-see'
 import {Container} from 'eye-oh-see'
+import { IPeopleService}  from './services/people'
+import { PeopleService}  from './services/people'
+import { PeopleServiceImpl}  from './services/people'
 
 
-interface IPeopleService
-{
-    func1():void;
-    func2():any;
-}
-
-
-abstract class PeopleService
-{
-    func1():void{
-        console.log('func1 from abstract class')
-    }
-}
-
-//@InstancePerDependency(IPeopleService)
-@SingleInstance(PeopleService)
-class PeopleServiceImpl extends PeopleService
-{
-    func2():any{ 
-        console.log('func2 from instance')
-        return 1
-      }
-    func1():void{
-        console.log('func1 from instance')
-    }
-}  
 
 function classicMode()
 {
