@@ -4,12 +4,12 @@
         "sourceMap": true,
     /* "jsx": "react",*/
         "emitDecoratorMetadata": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
      /*   "noEmit": true,
-        "noImplicitAny": true,
+        "noImplicitAny": true,*/
         "moduleResolution": "node",
-        "noImplicitReturns": true,
-        "typeRoots": [ "node_modules/@types" ]*/
+       /* "noImplicitReturns": true,*/
+        "typeRoots": [ "node_modules/@types" ]
     },
     "exclude": [
         "node_modules",

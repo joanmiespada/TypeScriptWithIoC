@@ -1,6 +1,6 @@
+//const pepe = require('werwer'); 
 
-
-export default function AutomaticRequires()
+export function AutomaticRequires():any
 {
-    require.context('./', true, /[^.].\.tsx?$/);
+      return require.context('./', true, /[^.].\.tsx?$/);
 }
