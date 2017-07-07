@@ -6,28 +6,25 @@ import * as l from './loader'
 
 import { IPeopleService}  from './services/people'
 //import { PeopleService}  from './services/people'
-//import { PeopleServiceImpl}  from './services/people'
+import { PeopleServiceImpl}  from './services/people'
 
-let context = serv.AutomaticRequires()
-context.keys().forEach(context);
+//let context = serv.AutomaticRequires()
+//context.keys().forEach(context);
 
 function containerMode()
 {
-    l.loader();
     const container = new Container()
 
-/* ???????    
-    container.register(PeopleService)
-    container.register(PeopleServiceImpl)
-*/
-                                                    //??????????????
-    //const elem:IPeopleService  = container.resolve<IPeopleService>()
+    const ObjectsToBeRegistered:any = l.loader();
 
-  //  elem.func1()
-  //  elem.func2()
+    ObjectsToBeRegistered.forEach(f => container.register(f))
+
+    const elem:IPeopleService  = container.resolve(PeopleServiceImpl)
+
+    elem.func1()
+    elem.func2()
 
 }
 
 
 containerMode()
-

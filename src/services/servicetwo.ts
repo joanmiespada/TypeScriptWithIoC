@@ -5,7 +5,7 @@ interface IServiceTwo
     foo():void;
 }
 
-class ServiceTwoImplement implements IServiceOne
+class ServiceTwoImplement implements IServiceTwo
 {
 
     public foo():void{

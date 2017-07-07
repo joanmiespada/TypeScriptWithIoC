@@ -1,3 +1,4 @@
+import {flatten} from 'lodash';
 
 var cache = {};
 
@@ -9,10 +10,24 @@ function importAll (r)
 export function loader():any
 {
 
-    let aux = require.context('./services', true, /\.js$/)
-    console.log(aux)
-    importAll(aux)
+    let context = require.context('./services', true, /\.ts$/)
+ //   console.log(context)
+  //  importAll(aux)
 
-    console.log(cache)
+//    console.log(cache)
+
+
+    
+    //const context = this.context();
+    const moduleObjects = context.keys().map(context);
+    //console.log(moduleObjects)    
+    const moduleExports = flatten(moduleObjects.map(moduleObject => Object.keys(moduleObject).map(k => moduleObject[k])));
+    //console.log(moduleExports)    
+    const serviceExports = moduleExports.filter(moduleExport => typeof moduleExport === 'function');
+
+    return serviceExports;
+    //console.log(serviceExports)    
+
+  
 
 }
